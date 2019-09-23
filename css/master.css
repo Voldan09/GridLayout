@@ -1,0 +1,69 @@
+/*
+класс .site-grid — основной контейнер
+для настройки определите в своём css файле
+свойство grid-template-areas напрмер так:
+"wn n  ."
+"t  t  t"
+"wm m  ."
+".  .  ."
+"wf f  .";
+wn, wm, wf - поименованя область сетки лежащая под
+n, m, f и служит для создания фона по всей ширине страницы
+должно содержать свойство grid-column: 1/4
+*/
+
+/* grid layout */
+.site-grid{
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr minmax(34rem, 75rem) 1fr;
+  grid-template-rows: auto 1fr auto;
+}
+.site-grid>*{
+  grid-column: 2/3;
+}
+.grid-columns{
+  display: grid;
+}
+ul.grid-columns{
+  padding: 0;
+  list-style-type: none;
+}
+/* basic setup */
+.col-2{grid-template-columns: repeat(2, 1fr);}
+.col-2fit{grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));}
+.col-3{grid-template-columns: repeat(3, 1fr);}
+.col-3fit{grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr));}
+.col-4{grid-template-columns: repeat(4, 1fr);}
+.col-4fit{grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));}
+
+.col-12{grid-template-columns: repeat(12, 1fr);}
+
+.span1{}
+.span2{grid-column: span 2;}
+.span3{grid-column: span 3;}
+.span4{grid-column: span 4;}
+.span6{grid-column: span 6;}
+.span-all{
+  grid-column-start:1;
+  grid-column-end: -1;
+}
+
+/* tablet */
+@media (max-width:48rem) {
+.col-4{grid-template-columns: repeat(2, 1fr);}
+.span1{grid-column: span 2;}
+.span2{grid-column: span 4;}
+.span3{grid-column: span 6;}
+.span4{grid-column: span 12;}
+.span6{grid-column: span 12;}
+}/* media tablet */
+
+/* mobile */
+@media (max-width:34rem) {
+.col-2{grid-template-columns: 1fr;}
+.col-3{grid-template-columns: 1fr;}
+.span1{grid-column: span 3;}
+.span2{grid-column: span 6;}
+.span3{grid-column: span 12;}
+}/* media tablet */
