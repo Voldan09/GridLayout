@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i&display=swap&subset=cyrillic');
+/* basic stylesheet*/
+html{
+  font-family: 'Roboto', sans-serif;
+  font-weight: lighter;
+}
+body{
+  margin: 0;
+}
+figure{
+  margin: 3rem 0 3rem 0;
+}
+h1, h2, h3 {
+  text-align: center;
+  font-weight:normal;
+}
+/*debug style*/
+.site-grid>*{
+  border: solid blue 1px;
+  border-radius: 1rem;
+}
+.grid-columns>p{
+  margin: 0;
+}
+
+.grid-columns>*{
+  padding: 1rem;
+  background: #ffc;
+  border: red solid 1px;
+  border-radius: 1rem;
+}
+.site-grid{
+  grid-template-areas:
+  "t  t  t"
+  "wm m  ."
+  ".  .  ."
+  ".  .  ."
+  ".  .  ."
+  "wf f  .";
+}
+
+/* main content*/
+.top{
+  grid-area: t;
+}
+main{
+  grid-area: m;
+}
+.wm{
+  grid-area: wm;
+  grid-column: 1/4;
+  background: #ddf;
+}
+/* footer */
+.wf{
+  grid-area: f;
+  grid-column: 1/4;
+  background: #ffd;
+}
+footer{
+  grid-area: f;
+}
